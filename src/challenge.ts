@@ -61,7 +61,20 @@ interface FruitByTaste {
 function fruitByTaste(fruits: Fruit[]): FruitByTaste {
   // Write your code here...
 
-  return {}; // replace empty object with what you see is fit
+  const result: FruitByTaste = {};
+
+  for (const fruit of fruits) {
+    const { taste, name } = fruit;
+
+    if (!result[taste]) {
+      result[taste] = [];
+    }
+
+    result[taste].push(name);
+  }
+
+  return result;
+  // replace empty object with what you see is fit
 }
 
 export { fruitByTaste, FruitByTaste };
